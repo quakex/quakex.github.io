@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://quakex.github.io/2019/10/23/railscast-101/</loc>
+    
+    <lastmod>2019-10-23T08:13:48.304Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://quakex.github.io/about/index.html</loc>
     
     <lastmod>2019-10-23T00:40:43.572Z</lastmod>
