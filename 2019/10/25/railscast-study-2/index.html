@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="emacs, flutter, study, linux, ruby, rails " />
+  <meta name="keywords" content="railscast," />
 
 
 
@@ -94,13 +94,15 @@
 
 
 
-<meta name="description" content="徐林的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="其徐如林">
-<meta property="og:url" content="https:&#x2F;&#x2F;quakex.github.io&#x2F;index.html">
+<meta name="description" content="#08 Layouts and content_forcontent_for 用于定制网页特定的内容， content_for 接受一个名称参数及代码块定义。代码块逻辑生成的内容将会被加载到布局文件中。 content_for 为我们提供在 Action 中定制布局文件定义的能力。诸如为某些指定的 Action 中增加用于显示菜单，滚动条等效果的 CSS 引用等。 12345678910&amp;lt;!">
+<meta name="keywords" content="railscast">
+<meta property="og:type" content="article">
+<meta property="og:title" content="railscast-study-2">
+<meta property="og:url" content="https:&#x2F;&#x2F;quakex.github.io&#x2F;2019&#x2F;10&#x2F;25&#x2F;railscast-study-2&#x2F;index.html">
 <meta property="og:site_name" content="其徐如林">
-<meta property="og:description" content="徐林的博客">
+<meta property="og:description" content="#08 Layouts and content_forcontent_for 用于定制网页特定的内容， content_for 接受一个名称参数及代码块定义。代码块逻辑生成的内容将会被加载到布局文件中。 content_for 为我们提供在 Action 中定制布局文件定义的能力。诸如为某些指定的 Action 中增加用于显示菜单，滚动条等效果的 CSS 引用等。 12345678910&amp;lt;!">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-25T08:18:11.142Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -130,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://quakex.github.io/"/>
+  <link rel="canonical" href="https://quakex.github.io/2019/10/25/railscast-study-2/"/>
 
 
 
 
 
-  <title>其徐如林</title>
+  <title>railscast-study-2 | 其徐如林</title>
   
 
 
@@ -161,9 +163,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -266,9 +266,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -298,9 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/25/railscast-study-2/" itemprop="url">railscast-study-2</a></h1>
+          <h1 class="post-title" itemprop="name headline">railscast-study-2</h1>
         
 
         <div class="post-meta">
@@ -372,9 +370,7 @@
       
 
       
-        
-          
-            <h2 id="08-Layouts-and-content-for"><a href="#08-Layouts-and-content-for" class="headerlink" title="#08 Layouts and content_for"></a>#08 Layouts and content_for</h2><p>content_for 用于定制网页特定的内容，</p>
+        <h2 id="08-Layouts-and-content-for"><a href="#08-Layouts-and-content-for" class="headerlink" title="#08 Layouts and content_for"></a>#08 Layouts and content_for</h2><p>content_for 用于定制网页特定的内容，</p>
 <p>content_for 接受一个名称参数及代码块定义。代码块逻辑生成的内容将会被加载到布局文件中。</p>
 <p>content_for 为我们提供在 Action 中定制布局文件定义的能力。诸如为某些指定的 Action 中增加用于显示菜单，滚动条等效果的 CSS 引用等。</p>
 <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- projects/index.rhtml --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">content_for</span> <span class="attr">:head</span> <span class="attr">do</span> %&gt;</span> <span class="tag">&lt;<span class="name">%=</span> <span class="attr">stylesheet_link_tag</span> '<span class="attr">projects</span>' %&gt;</span> <span class="tag">&lt;<span class="name">%</span> <span class="attr">end</span> %&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- layouts/application.rhtml --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Todo List<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">%=</span> <span class="attr">stylesheet_link_tag</span> '<span class="attr">application</span>' %&gt;</span> <span class="tag">&lt;<span class="name">%=</span> <span class="attr">yield</span> <span class="attr">:head</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
@@ -413,8 +409,6 @@
             document.body.appendChild(img);
           });
       </script>
-          
-        
       
     </div>
     
@@ -429,327 +423,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://quakex.github.io/2019/10/24/%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F%E2%80%9D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="徐林">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="其徐如林">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/24/%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F%E2%80%9D/" itemprop="url">是如何实现的？”</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-24T15:12:36+08:00">
-                2019-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/railscast/" rel="tag"># railscast</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://quakex.github.io/2019/10/23/railscast-101/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="徐林">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="其徐如林">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/23/railscast-101/" itemprop="url">railscast 学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-23T14:46:40+08:00">
-                2019-10-23
-              </time>
+              <a href="/2019/10/24/%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F%E2%80%9D/" rel="next" title="是如何实现的？”">
+                <i class="fa fa-chevron-left"></i> 是如何实现的？”
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/rails/" itemprop="url" rel="index">
-                    <span itemprop="name">rails</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="1-Caching-with-Instance-Variables"><a href="#1-Caching-with-Instance-Variables" class="headerlink" title="#1 Caching with Instance Variables"></a>#1 Caching with Instance Variables</h2><p>尽量少用数据库查询，查询出来的东西能复用的要复用。怎么复用？保存在实例变量中。</p>
-<figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApplicationController</span> &amp;<span class="title">lt</span>;</span> ActionController::Base</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">current_user</span></span></span><br><span class="line">    @current_user <span class="params">||</span>= User.find(session[<span class="symbol">:user_id</span>]) <span class="comment"># 这里面的逻辑还是有点绕的</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="2-Dynamic-find-by-Methods"><a href="#2-Dynamic-find-by-Methods" class="headerlink" title="#2 Dynamic find_by Methods"></a>#2 Dynamic find_by Methods</h2><p>过时了，现在都直接用 find_by.</p>
-<h2 id="3-Find-Through-Association"><a href="#3-Find-Through-Association" class="headerlink" title="#3 Find Through Association"></a>#3 Find Through Association</h2><p>seeds.rb : 可以做些复杂的事情。</p>
-<figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">happy = Project.create(<span class="symbol">name:</span> <span class="string">'Be Happy'</span>)</span><br><span class="line">happy.tasks.create(<span class="symbol">name:</span> <span class="string">'Buy a puppy'</span>, <span class="symbol">complete:</span> <span class="literal">false</span>)</span><br><span class="line">happy.tasks.create(<span class="symbol">name:</span> <span class="string">'Dance in the rain'</span>, <span class="symbol">complete:</span> <span class="literal">true</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>找到第一个 project 中未完成的任务：</p>
-<figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = Task.where(<span class="symbol">project_id:</span> <span class="number">1</span>).where(<span class="symbol">complete:</span> <span class="literal">false</span>) <span class="comment">#方法1</span></span><br><span class="line"></span><br><span class="line">p = Project.find <span class="number">1</span></span><br><span class="line">p.tasks.where(<span class="symbol">complete:</span> <span class="literal">false</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-Move-Find-into-Model"><a href="#4-Move-Find-into-Model" class="headerlink" title="#4 Move Find into Model"></a>#4 Move Find into Model</h2><p>index action 中，排序查找什么的，不要放在 controller 中了，model 的事情交给 model 做，这样 controller 中如果有多个地方想用这个查询，放在模型中就可以复用这个查询代码了。<br>注意模型中，是类方法，方法名前面加 self。<br>新版本中用 scopes 取代了这种方法，代码量小的可以用，更简洁。</p>
-<h2 id="5-scope"><a href="#5-scope" class="headerlink" title="#5 scope"></a>#5 scope</h2><p>scope 将常用的查询条件定义成方法。</p>
-<figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Post</span> &lt; ActiveRecord::Base</span></span><br><span class="line">  scope <span class="symbol">:published</span>, -&gt; { where(<span class="symbol">published:</span> <span class="literal">true</span>) }</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Post</span> &lt; ActiveRecord::Base</span></span><br><span class="line">  scope <span class="symbol">:created_before</span>, -&gt;(time) { where(<span class="string">"created_at &lt; ?"</span>, time) }</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">Post.created_before(Time.zone.now) <span class="comment">#需要动态参数时，还是用方法比较合适。</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="7-Layouts"><a href="#7-Layouts" class="headerlink" title="#7 Layouts"></a>#7 Layouts</h2><h3 id="动态布局"><a href="#动态布局" class="headerlink" title="动态布局"></a>动态布局</h3><figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UsersController</span></span></span><br><span class="line"></span><br><span class="line">  layout  <span class="symbol">:choose_layout</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">new</span></span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  protected</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">choose_layout</span></span></span><br><span class="line">    <span class="keyword">if</span> current_user.admin?</span><br><span class="line">      “admin”</span><br><span class="line">    elseif current_user.user?</span><br><span class="line">      “user”</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      “application”</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="指定布局"><a href="#指定布局" class="headerlink" title="指定布局"></a>指定布局</h3><figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UsersController</span></span></span><br><span class="line">  layout  “my_layout”</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UsersController</span></span></span><br><span class="line">  layout  <span class="literal">nil</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UsersController</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">    render <span class="symbol">:layout</span> =&gt; <span class="string">'my_layout'</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UsersController</span></span></span><br><span class="line">  layout  “my_layout”, : only =&gt;  <span class="symbol">:method_name</span></span><br><span class="line">  layout  “my_layout”, <span class="symbol">:except</span> =&gt; [ <span class="symbol">:my_method1</span>, <span class="symbol">:my_method2</span> ]</span><br><span class="line"></span><br><span class="line">  layout  <span class="symbol">:my_layout</span>,  : only =&gt; <span class="symbol">:my_method</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -759,170 +462,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://quakex.github.io/2019/10/22/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="徐林">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="其徐如林">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/22/hello-world/" itemprop="url">New Start</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-22T18:36:49+08:00">
-                2019-10-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index">
-                    <span itemprop="name">Diary</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="新的开始"><a href="#新的开始" class="headerlink" title="新的开始"></a>新的开始</h2><p>40 岁，是时候改变一下了，虽然晚了，但总比等死强。<br>勿忘初心。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -930,6 +474,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -950,8 +498,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -1013,6 +570,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#08-Layouts-and-content-for"><span class="nav-number">1.</span> <span class="nav-text">#08 Layouts and content_for</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-11-12-Refactoring-User-Name"><span class="nav-number">2.</span> <span class="nav-text">#10 11 12 Refactoring User Name</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重构"><span class="nav-number">2.1.</span> <span class="nav-text">重构</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1133,10 +706,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
