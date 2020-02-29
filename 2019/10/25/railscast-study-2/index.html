@@ -386,11 +386,11 @@
 <p>两处代码中出现重复的内容，这时候就需要重构了。</p>
 <figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ActiveRecord::Base</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">full_name</span></span></span><br><span class="line">    name = first_name + <span class="string">' '</span></span><br><span class="line">      name += <span class="string">"<span class="subst">#{middle_initial}</span>. "</span> <span class="keyword">unless</span> middle_initial.<span class="literal">nil</span>?</span><br><span class="line">      name += last_name</span><br><span class="line">      name</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">&lt;h1&gt;Users&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">&lt;ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;% for user in @users %&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;&lt;%= link_to user.full_name %&gt;&lt;/li</span>&gt;</span><br><span class="line">&lt;% <span class="keyword">end</span> %&gt;</span><br><span class="line">&lt;<span class="regexp">/ul&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>有<a>标签的都用 link_to.</a></p><a>
+<p>有<a>标签的都用 link_to.</a></p>
 <p>用测试来保障重构。</p>
 <p>ruby 有 ruby 的编程方法，和 c 系语言完全不同，区别的根源就是迭代器的使用。</p>
 <figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ActiveRecord::Base</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">full_name</span></span></span><br><span class="line">    [first_name, middle_initial_with_full_stop, last_name].compact.join(<span class="string">' '</span>)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">middle_initial_with_full_stop</span></span></span><br><span class="line">    <span class="string">"<span class="subst">#{middle_initial}</span>."</span> <span class="keyword">unless</span> middle_initial.blank?</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
-</a><script>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -527,7 +527,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -538,7 +538,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -549,7 +549,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
